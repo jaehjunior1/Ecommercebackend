@@ -1,6 +1,7 @@
 package com.JaehJunior.ecommercebackend.service;
 
 import com.JaehJunior.ecommercebackend.entity.Product;
+import com.JaehJunior.ecommercebackend.exception.ResourceNotFoundException;
 import com.JaehJunior.ecommercebackend.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class ProductService {
     }
 
     public Product getProductById(Long id) {
-    return productRepository.findById(id).orElse(null);
+    return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found"));
     }
 
     public void deleteProduct(Long id) {
@@ -34,7 +35,7 @@ public class ProductService {
     }
 
     public Product updateProduct(Long id, Product updatedProduct) {
-    Product product = productRepository.findById(id).orElse(null);
+    Product product = productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product Not found"));
 
     if (product != null) {
         product.setName(updatedProduct.getName());
