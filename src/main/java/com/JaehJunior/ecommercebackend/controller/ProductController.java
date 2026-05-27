@@ -1,5 +1,6 @@
 package com.JaehJunior.ecommercebackend.controller;
 
+import com.JaehJunior.ecommercebackend.dto.ProductDTO;
 import com.JaehJunior.ecommercebackend.entity.Product;
 import com.JaehJunior.ecommercebackend.service.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,8 @@ public class ProductController {
 
     // CREATE PRODUCT
     @PostMapping
-    public Product createProduct(@RequestBody Product product) {
-        return productService.createProduct(product);
+    public Product createProduct(@RequestBody ProductDTO productDTO) {
+        return productService.createProduct(productDTO);
     }
 
     // GET ALL PRODUCTS

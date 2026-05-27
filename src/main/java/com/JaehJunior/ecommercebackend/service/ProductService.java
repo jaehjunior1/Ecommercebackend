@@ -1,5 +1,6 @@
 package com.JaehJunior.ecommercebackend.service;
 
+import com.JaehJunior.ecommercebackend.dto.ProductDTO;
 import com.JaehJunior.ecommercebackend.entity.Product;
 import com.JaehJunior.ecommercebackend.exception.ResourceNotFoundException;
 import com.JaehJunior.ecommercebackend.repository.ProductRepository;
@@ -17,7 +18,12 @@ public class ProductService {
     }
 
     // CREATE
-    public Product createProduct(Product product) {
+    public Product createProduct(ProductDTO productDTO) {
+        Product product = new Product();
+
+        product.setName(productDTO.getName());
+        product.setDescription(productDTO.getDescription());
+        product.setPrice(productDTO.getPrice());
         return productRepository.save(product);
     }
 
