@@ -1,6 +1,5 @@
 package com.JaehJunior.ecommercebackend.controller;
 
-
 import com.JaehJunior.ecommercebackend.entity.User;
 import com.JaehJunior.ecommercebackend.service.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +15,6 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    
 
     @PostMapping
     public User createUser(@RequestBody User user) {
