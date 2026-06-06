@@ -30,4 +30,9 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+    @GetMapping("/admin")
+    public String adminEndpoint() {
+        return "Welcome Admin!";
+    }
 }
+
