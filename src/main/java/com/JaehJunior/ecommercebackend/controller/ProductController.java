@@ -3,7 +3,10 @@ package com.JaehJunior.ecommercebackend.controller;
 import com.JaehJunior.ecommercebackend.dto.ProductDTO;
 import com.JaehJunior.ecommercebackend.entity.Product;
 import com.JaehJunior.ecommercebackend.service.ProductService;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -18,6 +21,7 @@ public class ProductController {
     }
 
     // CREATE PRODUCT
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Product createProduct(@RequestBody ProductDTO productDTO) {
         return productService.createProduct(productDTO);
@@ -34,11 +38,13 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
 
+    @PreAuthorize("hasRole('ADMIN'")
     @PutMapping("/{id}")
     public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
         return productService.updateProduct(id, product);
