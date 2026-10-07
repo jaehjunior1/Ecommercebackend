@@ -1,9 +1,10 @@
 package com.JaehJunior.ecommercebackend.service;
 
+import org.springframework.stereotype.Service;
+
 import com.JaehJunior.ecommercebackend.entity.Category;
 import com.JaehJunior.ecommercebackend.exception.ResourceNotFoundException;
 import com.JaehJunior.ecommercebackend.repository.CategoryRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 

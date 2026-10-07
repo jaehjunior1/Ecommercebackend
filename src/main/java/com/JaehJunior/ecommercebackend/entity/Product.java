@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Product {
@@ -24,6 +27,11 @@ public class Product {
 
     @NotNull(message = "Quantity is required")
     private Integer quantity;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties("products")
+    private Category category;
 
     // ==========================
     // GETTERS
@@ -71,5 +79,13 @@ public class Product {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Category getCategory() {
+    return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

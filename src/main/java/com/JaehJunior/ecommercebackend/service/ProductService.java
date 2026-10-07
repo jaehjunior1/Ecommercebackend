@@ -1,10 +1,11 @@
 package com.JaehJunior.ecommercebackend.service;
 
+import org.springframework.stereotype.Service;
+
 import com.JaehJunior.ecommercebackend.dto.ProductDTO;
 import com.JaehJunior.ecommercebackend.entity.Product;
 import com.JaehJunior.ecommercebackend.exception.ResourceNotFoundException;
 import com.JaehJunior.ecommercebackend.repository.ProductRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class ProductService {
         product.setName(productDTO.getName());
         product.setDescription(productDTO.getDescription());
         product.setPrice(productDTO.getPrice());
+        product.setQuantity(productDTO.getQuantity());
+
         return productRepository.save(product);
     }
 
@@ -47,6 +50,8 @@ public class ProductService {
         product.setName(updatedProduct.getName());
         product.setDescription(updatedProduct.getDescription());
         product.setPrice(updatedProduct.getPrice());
+        product.setQuantity(updatedProduct.getQuantity());
+        
         return productRepository.save(product);
     }
 

@@ -1,9 +1,11 @@
 package com.JaehJunior.ecommercebackend.controller;
 
-import com.JaehJunior.ecommercebackend.entity.Category;
-import com.JaehJunior.ecommercebackend.service.CategoryService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+
+import com.JaehJunior.ecommercebackend.entity.Category;
+import com.JaehJunior.ecommercebackend.service.CategoryService;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class CategoryController {
     }
 
     // CREATE CATEGORY
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public Category createCategory(@Valid @RequestBody Category category) {
         return categoryService.createCategory(category);
@@ -36,6 +39,7 @@ public class CategoryController {
     }
 
     // UPDATE CATEGORY
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public Category updateCategory(@PathVariable Long id,
                                    @Valid @RequestBody Category category) {
@@ -43,6 +47,7 @@ public class CategoryController {
     }
 
     // DELETE CATEGORY
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategory(id);

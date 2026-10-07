@@ -1,11 +1,5 @@
 package com.JaehJunior.ecommercebackend.controller;
 
-import com.JaehJunior.ecommercebackend.dto.AuthRequest;
-import com.JaehJunior.ecommercebackend.dto.AuthResponse;
-import com.JaehJunior.ecommercebackend.entity.User;
-import com.JaehJunior.ecommercebackend.repository.UserRepository;
-import com.JaehJunior.ecommercebackend.security.JwtService;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,6 +8,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.JaehJunior.ecommercebackend.dto.AuthRequest;
+import com.JaehJunior.ecommercebackend.dto.AuthResponse;
+import com.JaehJunior.ecommercebackend.entity.User;
+import com.JaehJunior.ecommercebackend.repository.UserRepository;
+import com.JaehJunior.ecommercebackend.security.JwtService;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {

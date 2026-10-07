@@ -1,8 +1,9 @@
 package com.JaehJunior.ecommercebackend.repository;
 
-import com.JaehJunior.ecommercebackend.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.JaehJunior.ecommercebackend.entity.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {

@@ -3,6 +3,9 @@ package com.JaehJunior.ecommercebackend.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import java.util.List;
 
 @Entity
 public class Category {
@@ -14,6 +17,10 @@ public class Category {
     @Column(nullable = false, unique = true)
     @NotBlank(message = "Category name is required")
     private String name;
+
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    private List<Product> products;
 
     // Getters
     public Long getId() {
@@ -31,5 +38,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Product> getProducts() {
+    return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

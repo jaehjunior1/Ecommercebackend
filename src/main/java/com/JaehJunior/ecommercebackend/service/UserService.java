@@ -1,8 +1,10 @@
 package com.JaehJunior.ecommercebackend.service;
 
+import org.springframework.stereotype.Service;
+
 import com.JaehJunior.ecommercebackend.entity.User;
 import com.JaehJunior.ecommercebackend.repository.UserRepository;
-import org.springframework.stereotype.Service;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.List;
